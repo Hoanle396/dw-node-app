@@ -1,0 +1,6 @@
+/apache-maven-3.9.1/
+/apache-tomcat-9.0.65/
+*/node_modules/
+*.zip
+*/target
+*/.vscode

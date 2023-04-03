@@ -1,0 +1,76 @@
+version: "3.9"
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    container_name: 'db-mysql8'
+    environment:
+      MYSQL_DATABASE: "java-web"
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    ports:
+      - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql8
+ 
+  db2:
+    image: mysql:8.0
+    restart: unless-stopped
+    container_name: 'db-mysql8-2'
+    environment:
+      MYSQL_DATABASE: "doan"
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_TCP_PORT: 3307
+    ports:
+      - '3307:3307'
+    expose:
+      - 3307
+    volumes:
+      - db2:/var/lib/mysql8-2
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - 80:80
+    environment:
+      - PMA_HOST=db
+      - PMA_ARBITRARY=1
+      - PMA_USER=root
+      - PMA_PASSWORD=
+  phpmyadmin-2:
+    image: bitnami/phpmyadmin:latest
+    restart: unless-stopped
+    ports:
+      - 8181:8181
+    environment:
+      - DATABASE_HOST=db2
+      - DATABASE_PORT_NUMBER=3307
+      - PMA_ARBITRARY=1
+      - APACHE_HTTP_PORT_NUMBER=8181
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=
+
+  mongo:
+    image: mongo
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo-express
+    restart: unless-stopped
+    expose:
+      - 8081
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+volumes:
+  db:
+  db2:
+  mongo:

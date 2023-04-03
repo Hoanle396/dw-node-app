@@ -1,0 +1,9 @@
+body{
+	background: #DDD;
+}
+ul.nav.navbar-nav li a{
+	font-size: 15px;
+}
+table tbody tr #td{
+	font-size: 15px;
+}
