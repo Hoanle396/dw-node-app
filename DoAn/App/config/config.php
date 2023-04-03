@@ -1,4 +1,4 @@
 <?php 
-	define('BASE_URL','http://localhost/DoAn/');
+	define('BASE_URL','http://localhost/');
 
 ?>

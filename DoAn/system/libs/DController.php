@@ -34,7 +34,7 @@ class DController{
                 'Mã đơn hàng của
         bạn là ' .
                 $order_ID .
-                ". Truy cập http://localhost/DoAn/index/payment/" .
+                ". Truy cập http://localhost/index/payment/" .
                 $order_ID;
             $result = $mail->send();
             if (!$result) {

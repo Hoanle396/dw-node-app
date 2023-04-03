@@ -1,7 +1,7 @@
 <?php 
-	$connect='mysql:host=localhost;dbname=doan';
-	$user='tanhuy';
-	$pass='Huy0389973178';
+	$connect='mysql:host=db2;port:3307;dbname=doan';
+	$user='root';
+	$pass='';
 	try {
 		$db=new PDO($connect,$user,$pass);
 	} catch (Exception $e) {

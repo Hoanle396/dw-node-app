@@ -184,7 +184,8 @@
                                 </select>
                             </td>
                             <td>
-                                <select required id="Quan" name="Quan" style="width: 100%;height: 35px;border: 1px solid #dddddd;" >
+                                <select  id="Quan" name="Quan" style="width: 100%;height: 35px;border: 1px solid #dddddd;" >
+                                                                    <option selected value="2">lien chieu</option>
                                     <option selected value="<?php echo $ID_Quan?>"><?php echo $Quan?></option>
                                 </select>
                             </td>
@@ -195,7 +196,9 @@
                         </tr>
                         <tr>
                             <td>
-                                <select required id="Phuong" name="Phuong" style="width: 207%;height: 35px;border: 1px solid #dddddd;" >
+                                <select  id="Phuong" name="Phuong" style="width: 207%;height: 35px;border: 1px solid #dddddd;" >
+                                                                    <option selected value="3">Hoa hiep</option>
+
                                     <option selected value="<?php echo $ID_Phuong?>"><?php echo $Phuong?></option>
                                 </select>
                             </td>
@@ -205,7 +208,7 @@
                             <th></th>
                         </tr>
                         <tr>
-                            <td><textarea style="width: 207%;" rows="8" name="DiaChi" required><?php echo $Address?></textarea></td>
+                            <td><textarea style="width: 207%;" rows="8" name="DiaChi" ><?php echo $Address?></textarea></td>
                         </tr>
                     </table>
             </div>
