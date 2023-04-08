@@ -40,10 +40,29 @@ function compaseUser(firstUser, seconUser) {
         const match = seconUser.find((secon) => secon.Email === first.email)
         if (!!match) {
             matchUser.push(match)
-            delete seconUser.Email
-            newcompase.push({ ...first, ...secon })
+            delete match.Email
+            const user = {
+                id: first.id,
+                email: first.email,
+                createAt: first.createAt,
+                updateAt: first.updateAt,
+                fullname: first.fullname,
+                password: first.password,
+                role: first.role,
+                image: match.image,
+                customer_ID: match.customer_ID,
+                Password: match.Password,
+                Phone: match.Phone,
+                Date_of_birth: match.Date_of_birth,
+                Sex: match.Sex,
+                Address: match.Address
+            }
+            newcompase.push({ ...user })
+            console.log(user);
         }
-        newcompase.push(first)
+        else {
+            newcompase.push(first)
+        }
     })
     const noMatch = seconUser.filter((x) => matchUser.includes(x) !== true).map((x) => {
         x.email = x.Email
