@@ -58,7 +58,6 @@ function compaseUser(firstUser, seconUser) {
                 Address: match.Address
             }
             newcompase.push({ ...user })
-            console.log(user);
         }
         else {
             newcompase.push(first)
