@@ -53,7 +53,7 @@ services:
       - DATABASE_PASSWORD=
   
   php-apache-environment:
-    container_name: php-apache
+    container_name: php-apache-env
     build: ./DoAn
     environment:
       - ALLOW_OVERRIDE=All
@@ -82,6 +82,19 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+  
+  worker:
+    container_name: node-mon
+    build: ./module
+    # dockerfile: ./Dockerfile
+    environment:
+      - MONGODB=mongo
+      - JAVADB=db
+      - FASHIONDB=db2
+    volumes:
+      - ./module:/var/www/node/
+    ports:
+      - 8183:8183
 volumes:
   db:
   db2:
