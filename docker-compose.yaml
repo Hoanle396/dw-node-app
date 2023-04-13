@@ -95,6 +95,12 @@ services:
       - ./module:/var/www/node/
     ports:
       - 8183:8183
+    
+  spring:
+    container_name: spring
+    build: ./Spring-MVC
+    ports:
+      - 8080:8080
 volumes:
   db:
   db2:
